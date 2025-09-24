@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тест з WordPress</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    }
+    form p {
+      margin: 12px 0 6px; 
+      font-weight: bold;
+    }
+    label {
+      display: block;
+      margin: 2px 0; 
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background: #f7c600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #e6b800;
+    }
+    #quizResult {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Тест з WordPress</h1>
+    <nav>
+      <button onclick="window.location.href='index.html'">Головна</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Відповідай на запитання</h2>
+    <form id="quizForm">
+
+      <p>1. WordPress — це:</p>
+      <label><input type="radio" name="q1" value="a"> Мова програмування</label>
+      <label><input type="radio" name="q1" value="b"> CMS (система керування сайтом)</label>
+      <label><input type="radio" name="q1" value="c"> Операційна система</label>
+
+      <p>2. У якому році з’явився WordPress?</p>
+      <label><input type="radio" name="q2" value="a"> 1999</label>
+      <label><input type="radio" name="q2" value="b"> 2003</label>
+      <label><input type="radio" name="q2" value="c"> 2010</label>
+
+      <p>3. Яка мова програмування лежить в основі WordPress?</p>
+      <label><input type="radio" name="q3" value="a"> PHP</label>
+      <label><input type="radio" name="q3" value="b"> Java</label>
+      <label><input type="radio" name="q3" value="c"> Python</label>
+
+      <p>4. Яка база даних за замовчуванням використовується у WordPress?</p>
+      <label><input type="radio" name="q4" value="a"> MongoDB</label>
+      <label><input type="radio" name="q4" value="b"> MySQL</label>
+      <label><input type="radio" name="q4" value="c"> SQLite</label>
+
+      <p>5. Що таке плагін у WordPress?</p>
+      <label><input type="radio" name="q5" value="a"> Додатковий функціонал</label>
+      <label><input type="radio" name="q5" value="b"> Шаблон дизайну</label>
+      <label><input type="radio" name="q5" value="c"> Окрема сторінка сайту</label>
+
+      <p>6. Як називається стандартна тема, що йде у WordPress?</p>
+      <label><input type="radio" name="q6" value="a"> Twenty Twenty-One</label>
+      <label><input type="radio" name="q6" value="b"> Default WP</label>
+      <label><input type="radio" name="q6" value="c"> Basic Theme</label>
+
+      <p>7. Який тип контенту використовується у WordPress?</p>
+      <label><input type="radio" name="q7" value="a"> Пости та сторінки</label>
+      <label><input type="radio" name="q7" value="b"> Лише пости</label>
+      <label><input type="radio" name="q7" value="c"> Лише сторінки</label>
+
+      <p>8. Яка ліцензія використовується у WordPress?</p>
+      <label><input type="radio" name="q8" value="a"> GPL</label>
+      <label><input type="radio" name="q8" value="b"> MIT</label>
+      <label><input type="radio" name="q8" value="c"> Apache</label>
+
+      <p>9. Яка компанія стоїть за розробкою WordPress.com?</p>
+      <label><input type="radio" name="q9" value="a"> Microsoft</label>
+      <label><input type="radio" name="q9" value="b"> Automattic</label>
+      <label><input type="radio" name="q9" value="c"> Google</label>
+
+      <p>10. Яка головна відмінність WordPress.com та WordPress.org?</p>
+      <label><input type="radio" name="q10" value="a"> WordPress.com — хостингова версія, WordPress.org — для самостійного встановлення</label>
+      <label><input type="radio" name="q10" value="b"> WordPress.com безкоштовний, WordPress.org платний</label>
+      <label><input type="radio" name="q10" value="c"> Різниці немає</label>
+
+      <button type="button" onclick="checkQuiz()">Перевірити</button>
+    </form>
+
+    <p id="quizResult"></p>
+  </main>
+
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      const answers = {
+        q1: "b",
+        q2: "b",
+        q3: "a",
+        q4: "b",
+        q5: "a",
+        q6: "a",
+        q7: "a",
+        q8: "a",
+        q9: "b",
+        q10: "a"
+      };
+
+      for (let key in answers) {
+        const answer = document.querySelector(`input[name="${key}"]:checked`);
+        if (answer && answer.value === answers[key]) {
+          score++;
+        }
+      }
+
+      let message = "";
+      if (score === 10) message = "🌟 Відмінно! Ви експерт з WordPress!";
+      else if (score >= 7) message = "👍 Добре! Ви маєте гарні знання.";
+      else message = "📘 Потрібно трохи підтягнути знання.";
+
+      document.getElementById("quizResult").innerText =
+        `Ваш результат: ${score}/10. ${message}`;
+    }
+  </script>
+</body>
+</html>

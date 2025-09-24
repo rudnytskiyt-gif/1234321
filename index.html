@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress — Все про CMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-bar">
+            <h1>WORDPRESS</h1>
+            <nav>
+                <button onclick="scrollToSection('home')">Головна</button>
+                <button onclick="window.location.href='tests.html'">Тести</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-layout">
+
+        <aside class="left-sidebar sidebar-block">
+            <h2>Реєстрація</h2>
+            <form id="registerForm">
+                <label for="reg-name">Ім’я:</label>
+                <input type="text" id="reg-name" required>
+                <label for="reg-email">Email:</label>
+                <input type="email" id="reg-email" required>
+                <label for="reg-password">Пароль:</label>
+                <input type="password" id="reg-password" required>
+                <button type="submit">Зареєструватися</button>
+                <p class="message" id="registerMessage"></p>
+            </form>
+
+            <h2>Зворотній зв’язок</h2>
+            <form id="feedbackForm" action="mailto:rudnytskiyt@gmail.com" method="POST" enctype="text/plain">
+                <label for="feedback-name">Ваше ім’я:</label>
+                <input type="text" id="feedback-name" name="name" required>
+                <label for="feedback-message">Повідомлення:</label>
+                <textarea id="feedback-message" name="body" required></textarea>
+                <button type="submit">Відправити</button>
+                <p class="message" id="feedbackMessage"></p>
+            </form>
+        </aside>
+
+        <main class="center-content">
+            <section id="home">
+                <h2>Що таке WordPress?</h2>
+                <p>
+                    WordPress — це одна з найпопулярніших систем керування вмістом (CMS) у світі. 
+                    Вона з’явилася у 2003 році, коли Метт Малленвег та Майк Літтл створили платформу для ведення блогів. 
+                    Згодом WordPress вийшов далеко за межі простих блогів: сьогодні на ньому працює понад 40% усіх сайтів у світі.
+                </p>
+
+                <h3>Можливості WordPress</h3>
+                <p>
+                    Головна перевага WordPress полягає в тому, що він <b>безкоштовний</b> і має відкритий код. 
+                    Завдяки цьому будь-хто може завантажити систему, встановити її на свій сервер і створити сайт. 
+                    Крім того, він підтримує роботу з різними типами сайтів: блоги, корпоративні сторінки, форуми, інтернет-магазини, 
+                    портфоліо та навіть освітні платформи.
+                </p>
+                
+                <h3>Домінування на ринку та Спільнота</h3>
+                <p>
+                    Станом на 2024–2025 роки WordPress керує **понад 43% всіх веб-сайтів** в Інтернеті, 
+                    що робить його найпопулярнішою CMS у світі. Це в рази більше, ніж у його найближчих конкурентів (Shopify, Wix, Squarespace).
+                </p>
+
+                <div class="toggle-block">
+                    <button class="toggle-button" onclick="toggleText('community-details')">
+                        Показати деталі спільноти
+                    </button>
+                    <div id="community-details" class="hidden-text">
+                        <p>
+                            WordPress є проєктом з відкритим вихідним кодом, який підтримується величезною глобальною спільнотою 
+                            розробників, дизайнерів і користувачів. Ця спільнота постійно оновлює ядро, створює понад 
+                            **60 000 безкоштовних плагінів** та забезпечує переклад CMS на **понад 200 мов**. 
+                            Така підтримка є ключовою для його надійності та безпеки.
+                        </p>
+                    </div>
+                </div>
+                <h3>Дизайн та теми</h3>
+                <p>
+                    Зовнішній вигляд сайту в WordPress визначається темами. Це набір файлів, що відповідають за стилі, кольори, 
+                    розмітку сторінок та загальну структуру. Завдяки темам можна швидко змінити дизайн сайту, не знаючи програмування. 
+                    Існують як безкоштовні, так і платні теми, які можна завантажити та активувати всього у кілька кліків.
+                </p>
+
+                <h3>Плагіни</h3>
+                <p>
+                    Щоб розширити можливості сайту, у WordPress існують плагіни. Вони додають новий функціонал: 
+                    контактні форми, фотогалереї, SEO-інструменти, захист від спаму та багато іншого. 
+                    Наприклад, плагін WooCommerce дозволяє перетворити звичайний сайт у повноцінний інтернет-магазин.
+                </p>
+
+                <h3>Безпека</h3>
+                <p>
+                    Через величезну популярність WordPress часто стає ціллю для хакерів. 
+                    Тому дуже важливо регулярно оновлювати ядро WordPress, теми та плагіни. 
+                    Крім того, існують спеціальні плагіни для захисту від атак і резервного копіювання.
+                </p>
+
+                <h3>Висновки</h3>
+                <p>
+                    WordPress — це потужна та гнучка система для створення сайтів. 
+                    Вона підходить як для початківців, так і для досвідчених розробників. 
+                    Розуміння історії, принципів роботи з темами та плагінами, а також знання основ безпеки допоможуть 
+                    не лише створити власний сайт, але й добре підготуватися до тесту.
+                </p>
+            </section>
+        </main>
+
+        <aside class="right-sidebar sidebar-block">
+            <h2>Пошук</h2>
+            <form id="searchForm">
+                <input type="text" id="search-input" placeholder="Пошук..." name="s">
+                <button type="submit">Знайти</button>
+                <p class="message" id="searchMessage"></p>
+            </form>
+        </aside>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
