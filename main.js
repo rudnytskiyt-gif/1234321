@@ -50,10 +50,5 @@ document.getElementById("searchForm").addEventListener("submit", function(e) {
     }, 3000);
 
 });
-let visits = localStorage.getItem('visits');
-    if (visits === null) {
-        visits = 0;
-    }
-    visits++;
-    localStorage.setItem('visits', visits);
-    document.getElementById('counter').textContent = visits;
+
+
