@@ -50,5 +50,15 @@ document.getElementById("searchForm").addEventListener("submit", function(e) {
     }, 3000);
 
 });
+fetch('https://api.counterapi.dev/v1/rudnytskyi/wordpress-views/increment')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('visit-count').innerText = data.count;
+    })
+    .catch(error => {
+        console.error('Помилка при завантаженні лічильника:', error);
+        document.getElementById('visit-count').innerText = 'Неможливо завантажити';
+    });
+
 
 
