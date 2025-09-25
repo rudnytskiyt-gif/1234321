@@ -61,4 +61,3 @@ fetch('https://api.counterapi.dev/v1/rudnytskyi/wordpress-views/increment')
     });
 
 
-
